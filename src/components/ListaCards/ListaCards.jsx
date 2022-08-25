@@ -9,11 +9,15 @@ import { useState } from 'react';
 export const ListaCards = ({ produtos }) => {
   const [idSelecionados, setIdSelecionados] = useState([])
 
+  const handleSelecionar = (idASelecionar) => {
+
+  }
+
   return (
     <ul className={styles.lista}>
       {produtos.map((produto) => (
         <li className={styles.listaItem} key={produto.id}>
-          <Card produto={produto} selecionado={false} onSelecionar={() => console.log('clicou')} />
+          <Card produto={produto} selecionado={idSelecionados.includes(produto.id)} onSelecionar={() => handleSelecionar(produto.id)} />
         </li>
       ))}
     </ul>
