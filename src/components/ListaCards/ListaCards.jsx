@@ -10,7 +10,11 @@ export const ListaCards = ({ produtos }) => {
   const [idSelecionados, setIdSelecionados] = useState([])
 
   const handleSelecionar = (idASelecionar) => {
-
+    if (idSelecionados.includes(idASelecionar)) {
+      setIdSelecionados(idSelecionados.filter(id => id !== idASelecionar))
+    } else {
+      setIdSelecionados(selecionados => [...selecionados, idASelecionar])
+    }
   }
 
   return (
