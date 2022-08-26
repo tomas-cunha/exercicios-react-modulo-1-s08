@@ -5,6 +5,20 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   width: 100%;
+  border: 2px dashed transparent;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+.card:hover {
+  background-color: #000000;
 }
 
 .cardSelected {
@@ -29,7 +43,7 @@
 }
 
 .infoDescricao {
-  font-size: 14px;
+  font-size: 16px;
   color: #e0e0e0;
 }
 
@@ -37,6 +51,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 20px 20px;
+  width: 100%;
 }
 
 .footerValor {
