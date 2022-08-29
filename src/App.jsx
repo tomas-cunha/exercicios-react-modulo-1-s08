@@ -1,5 +1,7 @@
 import { Footer, Header, Secao } from '@components';
 import produtos from '@services/produtos.json';
+import { FiltroSecao } from './components/FiltroSecao';
+
 import styles from './App.module.css';
 
 function App() {
@@ -16,12 +18,17 @@ function App() {
     return Array.from(new Set(produtosComSubSecoes.map((p) => p.subSecao)));
   };
 
-  console.log(obterSubSecoes("Entradas"))
+  console.log(obterSubSecoes("Entradas"));
+
+  const handleSelecionarSecao = (tituloSecao) => {
+
+  }
 
   return (
     <div className={styles.app}>
       <Header />
       <main className={styles.main}>
+        <FiltroSecao secoesFiltro={secoes} onSelecionarSecao={handleSelecionarSecao} />
         {secoes.map((s) => {
           return (
             <Secao
