@@ -1,7 +1,8 @@
-import { Footer, Header, Secao, FiltroSecao } from '@components';
-import { produtos } from '@services';
-import { useState } from 'react';
-import styles from './App.module.css';
+import { Footer, Header, Secao, FiltroSecao } from "@components";
+import { produtos } from "@services";
+import { ProdutosSelecionadosProvider } from "./context/ProdutosSelecionados/index";
+import { useState } from "react";
+import styles from "./App.module.css";
 
 function App() {
   const [filtro, setFiltro] = useState(null);
@@ -13,7 +14,9 @@ function App() {
   };
 
   const obterSubSecoes = (secao) => {
-    const produtosComSubSecoes = obterProdutosSecao(secao).filter((p) => p.subSecao);
+    const produtosComSubSecoes = obterProdutosSecao(secao).filter(
+      (p) => p.subSecao
+    );
 
     return Array.from(new Set(produtosComSubSecoes.map((p) => p.subSecao)));
   };
@@ -35,24 +38,26 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Header />
-      <main className={styles.main}>
-        <FiltroSecao
-          secoes={secoes}
-          secaoSelecionada={filtro}
-          onSelecionar={handleSelecionarSecao}
-        />
-
-        {obterSecoesFiltradas().map((secao) => (
-          <Secao
-            key={secao}
-            nome={secao}
-            produtos={obterProdutosSecao(secao)}
-            subSecoes={obterSubSecoes(secao)}
+      <ProdutosSelecionadosProvider>
+        <Header />
+        <main className={styles.main}>
+          <FiltroSecao
+            secoes={secoes}
+            secaoSelecionada={filtro}
+            onSelecionar={handleSelecionarSecao}
           />
-        ))}
-      </main>
-      <Footer />
+
+          {obterSecoesFiltradas().map((secao) => (
+            <Secao
+              key={secao}
+              nome={secao}
+              produtos={obterProdutosSecao(secao)}
+              subSecoes={obterSubSecoes(secao)}
+            />
+          ))}
+        </main>
+        <Footer />
+      </ProdutosSelecionadosProvider>
     </div>
   );
 }
