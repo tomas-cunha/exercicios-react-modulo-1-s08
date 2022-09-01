@@ -11,7 +11,7 @@ export default defineConfig({
       '@images': path.resolve(__dirname, './src/assets/images/index.jsx'),
       '@icons': path.resolve(__dirname, './src/assets/icons/index.jsx'),
       '@services': path.resolve(__dirname, './src/services/index.jsx'),
-      '@contexts': path.resolve(__dirname, './src/contexts/index.js'),
+      '@context': path.resolve(__dirname, './src/context/index.js'),
       '@pages': path.resolve(__dirname, './src/pages/index.js'),
       '@router': path.resolve(__dirname, './src/router/index.js'),
     },
